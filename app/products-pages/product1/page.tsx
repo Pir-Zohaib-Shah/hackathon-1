@@ -46,7 +46,7 @@ const products: Product[] = [
   },
   {
     name: "Library stool chair",
-    image: "/featured/Image-5.png",
+    image: "/featured/image-5.png",
     price: "$39.99",
     link: "/products-pages/product1"
   },
