@@ -1,3 +1,4 @@
+'use client'
 import Image from 'next/image';
 import React from 'react';
 import { Inter } from "@next/font/google";
@@ -115,7 +116,7 @@ const our_Products: Our_Products[] = [
   },
   {
     name: "Library stool chair",
-    image: "/categories/Image-1.png",
+    image: "/featured/Image-2.png",
     price: "$30",
     link: "/products-pages/product1"
   },
@@ -133,6 +134,33 @@ const our_Products: Our_Products[] = [
   },
 
 ];
+interface Brand{
+  image: string,
+}
+
+const brand: Brand[] = [
+  {
+    image: "/brand/logo-1.png"
+  },
+  {
+    image: "/brand/logo-2.png"
+  },
+  {
+    image: "/brand/logo-3.png"
+  },
+  {
+    image: "/brand/logo-4.png"
+  },
+  {
+    image: "/brand/logo-5.png"
+  },
+  {
+    image: "/brand/logo-6.png"
+  },
+  {
+    image: "/brand/logo-7.png"
+  }
+]
 
 const Hero_sec = () => {
   return (
@@ -140,14 +168,10 @@ const Hero_sec = () => {
     <div className='flex justify-center'>
     <div className='flex items-center'>
     <div className='w-full md:h-[139px] grid grid-cols-3 sm:grid-cols-1 md:grid-cols-7 lg:grid-cols-7 items-center md:gap-24 gap-10'>
-    <Image src="/brand-logos/logo-1.png" alt='logo1' width={85} height={87} className='transform hover:scale-125 transition-all duration-200'/>
-    <Image src="/brand-logos/logo-2.png" alt='logo2' width={85} height={87} className='transform hover:scale-125 transition-all duration-200'/>
-    <Image src="/brand-logos/logo-3.png" alt='logo3' width={85} height={87} className='transform hover:scale-125 transition-all duration-200'/>
-    <Image src="/brand-logos/logo-4.png" alt='logo4' width={85} height={87} className='transform hover:scale-125 transition-all duration-200'/>
-    <Image src="/brand-logos/logo-5.png" alt='logo5' width={85} height={87} className='transform hover:scale-125 transition-all duration-200'/>
-    <Image src="/brand-logos/logo-6.png" alt='logo6' width={85} height={87} className='transform hover:scale-125 transition-all duration-200'/>
-    <Image src="/brand-logos/logo-7.png" alt='logo7' width={85} height={87} className='transform hover:scale-125 transition-all duration-200 hidden md:block'/>
-</div>
+    {brand.map((brand, index) => (
+    <Image src={brand.image} alt='logo' width={85} height={87} className='transform hover:scale-125 transition-all duration-200'/>
+  ))}
+    </div>
     </div>
     </div>
       <div className='flex justify-center'>
