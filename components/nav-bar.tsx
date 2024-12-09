@@ -6,7 +6,7 @@ const Navbar = () => {
     <div className='flex justify-center'>
         <div className='w-[1321px] h-[74px] flex justify-between items-center'>
             <div>
-              <ul className='flex space-x-7 p-2 md:justify-start md:space-x-5'>
+              <ul className='flex space-x-6 p-2 md:justify-start md:space-x-5'>
                 <li><Link href="/">Home</Link></li>
                 <li><Link href="/faqs">Shop</Link></li>
                 <li><Link href="/products">Products</Link></li>
