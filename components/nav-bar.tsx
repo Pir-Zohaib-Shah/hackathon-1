@@ -8,9 +8,9 @@ const Navbar = () => {
             <div>
               <ul className='flex space-x-7 p-2 md:justify-start md:space-x-5'>
                 <li><Link href="/">Home</Link></li>
-                <li><Link href="#">Shop</Link></li>
+                <li><Link href="/faqs">Shop</Link></li>
                 <li><Link href="/products">Products</Link></li>
-                <li><Link href="#">Pages</Link></li>
+                <li><Link href="/contact">Contact</Link></li>
                 <li><Link href="/about">About</Link></li>
               </ul>
             </div>

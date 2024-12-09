@@ -6,6 +6,8 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import Footer from '@/components/footer/Footer';
+import { Url } from 'next/dist/shared/lib/router/router';
+import Link from 'next/link';
 
 const inter = Inter({
     subsets: ["latin"],
@@ -14,8 +16,9 @@ const inter = Inter({
 
 interface All_Products{
     name: string,
-    image: string
-    price: string
+    image: string,
+    price: string,
+    link: Url,
 
 }
 
@@ -24,61 +27,73 @@ const all_Products: All_Products[] = [
       name: "library stool chair",
       image: "/featured/Image-1.png",
       price: "$20",
+      link: "/products-pages/product1"
     },
     {
       name: "Library chair",
       image: "/featured/Image-4.png",
       price: "$29.99",
+      link: "/products-pages/product1"
     },
     {
       name: "Library stool chair",
       image: "/featured/Image-3.png",
       price: "$39.99",
+      link: "/products-pages/product1"
     },
     {
       name: "Library stool chair",
       image: "/featured/Image-2.png",
       price: "$30",
+      link: "/products-pages/product1"
     },
     {
       name: "Library stool chair",
       image: "/featured/Image-5.png",
       price: "$30",
+      link: "/products-pages/product1"
     },
     {
       name: "Library stool chair",
       image: "/categories/Image-1.png",
       price: "$30",
+      link: "/products-pages/product1"
     },
     {
       name: "Library stool chair",
       image: "/categories/Image-2.png",
       price: "$30",
+      link: "/products-pages/product1"
     },
     {
       name: "Library stool chair",
       image: "/categories/Image-3.png",
       price: "$30",
+      link: "/products-pages/product1"
     },
     {
         name: "library stool chair",
         image: "/featured/Image-1.png",
         price: "$20",
+        link: "/products-pages/product1"
       },
       {
         name: "Library chair",
         image: "/featured/Image-4.png",
         price: "$29.99",
+        link: "/products-pages/product1"
       },
       {
         name: "Library stool chair",
         image: "/featured/Image-3.png",
         price: "$39.99",
+        link: "/products-pages/product1"
       },
       {
         name: "Library stool chair",
         image: "/categories/Image-1.png",
         price: "$30",
+        link: "/products-pages/product1"
       },
   
   ];
@@ -93,13 +108,13 @@ const Product_page = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-3 mt-6">
       {all_Products.map((all_Products, index) => (
         <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-95  transition-all duration-200">
-          <Image 
+         <Link href={all_Products.link}> <Image 
             src={all_Products.image} 
             alt={all_Products.name} 
             width={200} 
             height={200} 
             className="w-full h-60 object-cover"
-          />
+          /> </Link>
           <div className="p-4">
             <h3 className="text-sm font-semibold">{all_Products.name}</h3>
             <div className="mt-4 flex justify-between items-center">
