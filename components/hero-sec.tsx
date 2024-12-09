@@ -1,4 +1,3 @@
-'use client'
 import Image from 'next/image';
 import React from 'react';
 import { Inter } from "@next/font/google";
@@ -7,6 +6,7 @@ import { BsCart3 } from "react-icons/bs";
 import Footer from './footer/Footer';
 import { Url } from 'next/dist/shared/lib/router/router';
 import Link from 'next/link';
+
 
 const inter = Inter({
   subsets: ["latin"],
@@ -136,28 +136,36 @@ const our_Products: Our_Products[] = [
 ];
 interface Brand{
   image: string,
+  id:string,
 }
 
 const brand: Brand[] = [
   {
+    id: "1",
     image: "/brand/logo-1.png"
   },
   {
+    id: "2",
     image: "/brand/logo-2.png"
   },
   {
+    id: "3",
     image: "/brand/logo-3.png"
   },
   {
+    id: "4",
     image: "/brand/logo-4.png"
   },
   {
+    id: "5",
     image: "/brand/logo-5.png"
   },
   {
+    id: "6",
     image: "/brand/logo-6.png"
   },
   {
+    id: "7",
     image: "/brand/logo-7.png"
   }
 ]
@@ -168,8 +176,8 @@ const Hero_sec = () => {
     <div className='flex justify-center'>
     <div className='flex items-center'>
     <div className='w-full md:h-[139px] grid grid-cols-3 sm:grid-cols-1 md:grid-cols-7 lg:grid-cols-7 items-center md:gap-24 gap-10'>
-    {brand.map((brand, index) => (
-    <Image src={brand.image} alt='logo' width={85} height={87} className='transform hover:scale-125 transition-all duration-200'/>
+    {brand.map((brand) => (
+    <Image src={brand.image} alt={brand.id} key={brand.id} width={85} height={87} className='transform hover:scale-125 transition-all duration-200'/>
   ))}
     </div>
     </div>
@@ -183,6 +191,7 @@ const Hero_sec = () => {
       {products.map((product, index) => (
         <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-95  transition-all duration-200">
         <Link href={product.link}><Image 
+        key={product.name}
             src={product.image} 
             alt={product.name} 
             width={200} 
@@ -206,6 +215,7 @@ const Hero_sec = () => {
       {categories.map((categories, index) => (
         <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-95  transition-all duration-200">
           <Link href={categories.link}><Image 
+          key={categories.name}
             src={categories.image} 
             alt={categories.name} 
             width={150} 
