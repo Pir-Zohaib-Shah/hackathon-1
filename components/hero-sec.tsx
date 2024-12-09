@@ -110,7 +110,7 @@ const our_Products: Our_Products[] = [
   },
   {
     name: "Library stool chair",
-    image: "/featured/Image-5.png",
+    image: "/featured/image-5.png",
     price: "$30",
     link: "/products-pages/product1"
   },
@@ -142,31 +142,31 @@ interface Brand{
 const brand: Brand[] = [
   {
     id: "1",
-    image: "/brand/logo-1.png"
+    image: "/brand/Logo-1.png"
   },
   {
     id: "2",
-    image: "/brand/logo-2.png"
+    image: "/brand/Logo-2.png"
   },
   {
     id: "3",
-    image: "/brand/logo-3.png"
+    image: "/brand/Logo-3.png"
   },
   {
     id: "4",
-    image: "/brand/logo-4.png"
+    image: "/brand/Logo-4.png"
   },
   {
     id: "5",
-    image: "/brand/logo-5.png"
+    image: "/brand/Logo-5.png"
   },
   {
     id: "6",
-    image: "/brand/logo-6.png"
+    image: "/brand/Logo-6.png"
   },
   {
     id: "7",
-    image: "/brand/logo-7.png"
+    image: "/brand/Logo-7.png"
   }
 ]
 
@@ -240,12 +240,12 @@ const Hero_sec = () => {
     </div>
     </div>
     <div className='flex items-center'>
-      <Image src="/featured/image-3.png" alt='img1' width={648} height={648}/>
+      <Image src="/featured/Image-3.png" alt='img1' width={648} height={648}/>
     </div>
     <div className='grid grid-cols-2 gap-3 mt-4'>
-    <Image src="/featured/image-2.png" alt='img1' width={312} height={312}/>
-    <Image src="/featured/image-1.png" alt='img1' width={312} height={312}/>
-    <Image src="/featured/image-4.png" alt='img1' width={312} height={312}/>
+    <Image src="/featured/Image-2.png" alt='img1' width={312} height={312}/>
+    <Image src="/featured/Image-1.png" alt='img1' width={312} height={312}/>
+    <Image src="/featured/Image-4.png" alt='img1' width={312} height={312}/>
     <Image src="/featured/image-5.png" alt='img1' width={312} height={312}/>
     </div>
     </div>
