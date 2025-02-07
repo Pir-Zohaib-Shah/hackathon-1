@@ -75,7 +75,7 @@ const Product_page = () => {
     <Image src="/featured/Image-2.png" alt='img' width={186} height={186}/>
     <Image src="/categories/Image-3.png" alt='img' width={186} height={186}/>
     <Image src="/featured/Image-4.png" alt='img' width={186} height={186}/>
-    <Image src="/featured/Image-5.png" alt='img' width={186} height={186}/>
+    <Image src="/featured/image-5.png" alt='img' width={186} height={186}/>
     <Image src="/categories/Image-1.png" alt='img' width={186} height={186}/>
     </div>
     </div>
