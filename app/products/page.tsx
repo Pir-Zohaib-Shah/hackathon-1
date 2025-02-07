@@ -1,12 +1,14 @@
-import React from 'react'
+'use client'
+import React, { useEffect, useState } from 'react'
 import { Inter } from "@next/font/google";
-
 import { BsCart3 } from "react-icons/bs";
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import Footer from '@/components/footer/Footer';
-import { Url } from 'next/dist/shared/lib/router/router';
+import { Product } from '@/types/products';
+import { client } from '@/sanity/lib/client';
+import { allProducts } from '@/sanity/lib/queries';
+import { urlFor } from '@/sanity/lib/image';
 import Link from 'next/link';
 
 const inter = Inter({
@@ -14,90 +16,16 @@ const inter = Inter({
     weight: ["600"],
   });
 
-interface All_Products{
-    name: string,
-    image: string,
-    price: string,
-    link: Url,
-
-}
-
-const all_Products: All_Products[] = [
-    {
-      name: "library stool chair",
-      image: "/featured/Image-1.png",
-      price: "$20",
-      link: "/products-pages/product1"
-    },
-    {
-      name: "Library chair",
-      image: "/featured/Image-4.png",
-      price: "$29.99",
-      link: "/products-pages/product1"
-    },
-    {
-      name: "Library stool chair",
-      image: "/featured/Image-3.png",
-      price: "$39.99",
-      link: "/products-pages/product1"
-    },
-    {
-      name: "Library stool chair",
-      image: "/featured/Image-2.png",
-      price: "$30",
-      link: "/products-pages/product1"
-    },
-    {
-      name: "Library stool chair",
-      image: "/featured/Image-5.png",
-      price: "$30",
-      link: "/products-pages/product1"
-    },
-    {
-      name: "Library stool chair",
-      image: "/categories/Image-1.png",
-      price: "$30",
-      link: "/products-pages/product1"
-    },
-    {
-      name: "Library stool chair",
-      image: "/categories/Image-2.png",
-      price: "$30",
-      link: "/products-pages/product1"
-    },
-    {
-      name: "Library stool chair",
-      image: "/categories/Image-3.png",
-      price: "$30",
-      link: "/products-pages/product1"
-    },
-    {
-        name: "library stool chair",
-        image: "/featured/Image-1.png",
-        price: "$20",
-        link: "/products-pages/product1"
-      },
-      {
-        name: "Library chair",
-        image: "/featured/Image-4.png",
-        price: "$29.99",
-        link: "/products-pages/product1"
-      },
-      {
-        name: "Library stool chair",
-        image: "/featured/Image-3.png",
-        price: "$39.99",
-        link: "/products-pages/product1"
-      },
-      {
-        name: "Library stool chair",
-        image: "/categories/Image-1.png",
-        price: "$30",
-        link: "/products-pages/product1"
-      },
-  
-  ];
 const Product_page = () => {
+
+   const [products, setProducts] = useState<Product[]>([]);
+  useEffect(() => {
+    async function fetchData() {
+      const fetchedProducts : Product[] = await client.fetch(allProducts);
+      setProducts(fetchedProducts);
+    }
+    fetchData();
+  }, []);
   return (
     <div>
     <div className='flex justify-center'>
@@ -105,26 +33,32 @@ const Product_page = () => {
         <div className={inter.className}>
       <h1 className='md:text-[32px] text-2xl p-2 mt-6'>All Products</h1>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-3 mt-6">
-      {all_Products.map((all_Products, index) => (
-        <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-95  transition-all duration-200">
-         <Link href={all_Products.link}> <Image 
-            src={all_Products.image} 
-            alt={all_Products.name} 
-            width={200} 
-            height={200} 
-            className="w-full h-60 object-cover"
-          /> </Link>
-          <div className="p-4">
-            <h3 className="text-sm font-semibold">{all_Products.name}</h3>
-            <div className="mt-4 flex justify-between items-center">
-              <span className="text-xl font-bold">{all_Products.price}</span>
-              <Button className='bg-secondary. rounded-xl'><BsCart3/></Button>
+    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-2'>
+           {products.map((products) => (
+            <div key={products._id} className="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-95  transition-all duration-200">
+              <Link href={`/products/${products._id}`} passHref> 
+            <div >
+              {products.image && (
+                <Image src={urlFor(products.image).url()}
+                alt={products.title}
+                width={200}
+                height={200} 
+                className='w-full h-64 object-cover rounded-md mb-4' 
+                ></Image>
+              )}
+              <div className='p-4'>
+              <div className="text-base font-semibold">{products.title}</div>
+              <div className="mt-4 flex justify-between items-center">
+                            <span className="text-xl font-bold">${products.price}</span>
+                            <Button className='bg-secondary. rounded-xl'><BsCart3/></Button>
+                          </div>
             </div>
-          </div>
-        </div>
-      ))}
-    </div>
+            </div>  
+            </Link>
+            </div>
+           )
+           )}
+           </div>
 </div>
 
     
@@ -145,9 +79,6 @@ const Product_page = () => {
     <Image src="/categories/Image-1.png" alt='img' width={186} height={186}/>
     </div>
     </div>
-    <div className='md:mt-[171px]'>
-<Footer/>
-</div>
 </div>
 </div>
   )

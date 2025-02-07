@@ -3,7 +3,6 @@ import { FaLocationDot } from "react-icons/fa6";
 import { FaPhoneAlt } from "react-icons/fa";
 import { MdWatchLater } from "react-icons/md";
 import { Input } from '@/components/ui/input';
-import Footer from '@/components/footer/Footer';
 import Image from 'next/image';
 
 const Contact = () => {
@@ -72,9 +71,6 @@ const Contact = () => {
     <Image src="/quality-3.png" alt="?" width={300} height={300} className='w-52 md:w-[300px]'/>
     <Image src="/quality-1.png" alt="?" width={300} height={300} className='w-52 md:w-[300px]'/>
     </div>
-    </div>
-    <div className='md:w-[1250px] w-[350px]'>
-    <Footer/>
     </div>
     </div>
   )

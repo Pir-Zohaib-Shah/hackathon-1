@@ -8,7 +8,7 @@ const Navbar = () => {
             <div>
               <ul className='flex space-x-6 p-2 md:justify-start md:space-x-5'>
                 <li><Link href="/">Home</Link></li>
-                <li><Link href="/faqs">Shop</Link></li>
+                <li><Link href="/products">Shop</Link></li>
                 <li><Link href="/products">Products</Link></li>
                 <li><Link href="/contact">Contact</Link></li>
                 <li><Link href="/about">About</Link></li>

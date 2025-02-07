@@ -1,4 +1,3 @@
-import Footer from '@/components/footer/Footer'
 import React from 'react'
 
 const Faqs = () => {
@@ -66,7 +65,6 @@ const Faqs = () => {
             </div>
         </div>
         </div>
-        <Footer/>
     </div>
   )
 }

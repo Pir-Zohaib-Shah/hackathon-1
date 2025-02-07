@@ -3,8 +3,6 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { FiTrash2 } from 'react-icons/fi';
 import { Button } from '@/components/ui/button';
-import Footer from '@/components/footer/Footer';
-
 
 
 interface CartItem {
@@ -102,9 +100,6 @@ const Cart: React.FC = () => {
         </div>
       )}
     </div>
-    <div className='mt-4'>
-      <Footer/>
-      </div>
       </div>
       </div>
   );
